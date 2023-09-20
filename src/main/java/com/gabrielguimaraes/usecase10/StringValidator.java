@@ -2,6 +2,10 @@ package com.gabrielguimaraes.usecase10;
 
 public class StringValidator {
 
+    private StringValidator() {
+        throw new IllegalStateException("Utility class");
+    }
+
     /**
      * Determines if a given string meets specific validation criteria.
      *
