@@ -29,15 +29,16 @@ public class StringValidator {
     private static final String UPPERCASE_REGEX = ".*[A-Z].*";
     private static final String LOWERCASE_REGEX = ".*[a-z].*";
     private static final String DIGIT_REGEX = ".*\\d.*";
-    private static final String SPECIAL_CHAR_REGEX = ".*[!\"#$%&'()*+,-./:;<=>?@\\[\\]^_`{|}~].*";
+    private static final String SPECIAL_CHAR_REGEX = ".*[!\"#$%&'()*+,-./:;<=>?@\\[\\]\\\\^_`{|}~].*";
 
     public static boolean isValid(String input, int maxLength) {
-        return !input.isEmpty() && input.length() <= maxLength &&
-            !input.matches(WHITESPACE_REGEX) &&
-            input.matches(UPPERCASE_REGEX) &&
-            input.matches(LOWERCASE_REGEX) &&
-            input.matches(DIGIT_REGEX) &&
-            input.matches(SPECIAL_CHAR_REGEX);
+        return
+            !input.isEmpty() && input.length() <= maxLength &&
+                !input.matches(WHITESPACE_REGEX) &&
+                input.matches(UPPERCASE_REGEX) &&
+                input.matches(LOWERCASE_REGEX) &&
+                input.matches(DIGIT_REGEX) &&
+                input.matches(SPECIAL_CHAR_REGEX);
     }
 }
 
