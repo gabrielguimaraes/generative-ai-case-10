@@ -1,5 +1,7 @@
 package com.gabrielguimaraes.usecase10;
 
+import java.util.regex.Pattern;
+
 public class StringValidator {
 
     private StringValidator() {
@@ -25,20 +27,21 @@ public class StringValidator {
      * @param maxLength The maximum acceptable length of the string.
      * @return {@code true} if the input string matches the criteria, {@code false} otherwise.
      */
-    private static final String WHITESPACE_REGEX = ".*\\s.*+";
-    private static final String UPPERCASE_REGEX = ".*[A-Z].*+";
-    private static final String LOWERCASE_REGEX = ".*[a-z].*+";
-    private static final String DIGIT_REGEX = ".*\\d.*+";
-    private static final String SPECIAL_CHAR_REGEX = ".*[!\"#$%&'()*+,-./:;<=>?@\\[\\]\\\\^_`{|}~].*+";
+    private static final Pattern WHITESPACE_REGEX = Pattern.compile(".*\\s.*+");
+    private static final Pattern UPPERCASE_REGEX = Pattern.compile(".*[A-Z].*+");
+    private static final Pattern LOWERCASE_REGEX = Pattern.compile(".*[a-z].*+");
+    private static final Pattern DIGIT_REGEX = Pattern.compile(".*\\d.*+");
+    private static final Pattern SPECIAL_CHAR_REGEX = Pattern.compile(
+        ".*[!\"#$%&'()*+,-./:;<=>?@\\[\\]\\\\^_`{|}~].*+");
 
     public static boolean isValid(String input, int maxLength) {
         return
             !input.isEmpty() && input.length() <= maxLength &&
-                !input.matches(WHITESPACE_REGEX) &&
-                input.matches(UPPERCASE_REGEX) &&
-                input.matches(LOWERCASE_REGEX) &&
-                input.matches(DIGIT_REGEX) &&
-                input.matches(SPECIAL_CHAR_REGEX);
+                !WHITESPACE_REGEX.matcher(input).matches() &&
+                UPPERCASE_REGEX.matcher(input).matches() &&
+                LOWERCASE_REGEX.matcher(input).matches() &&
+                DIGIT_REGEX.matcher(input).matches() &&
+                SPECIAL_CHAR_REGEX.matcher(input).matches();
     }
 }
 
