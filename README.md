@@ -21,12 +21,12 @@ The underlying regular expression engine has been crafted to deliver a high-perf
 
 1. **Clone the repository**:
    ```bash
-   git clone [your_repository_link]
+   git clone https://github.com/gabrielguimaraes/generative-ai-case-10
    ```
 
 2. **Navigate to the project directory**:
    ```bash
-   cd path_to_project_directory
+   cd generative-ai-case-10
    ```
 
 3. **Compile the project**:
