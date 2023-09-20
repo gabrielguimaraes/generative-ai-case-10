@@ -1,12 +1,30 @@
 package com.gabrielguimaraes.usecase10;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 class StringValidatorTest {
+
+    @Test
+    void testPrivateConstructor() throws NoSuchMethodException {
+        Constructor<StringValidator> constructor = StringValidator.class.getDeclaredConstructor();
+        assertTrue(Modifier.isPrivate(constructor.getModifiers()), "Constructor should be private");
+
+        constructor.setAccessible(true);
+        assertThrows(InvocationTargetException.class, constructor::newInstance,
+            "Constructor should throw an exception");
+    }
+
 
     @ParameterizedTest
     @MethodSource("provideStringsForValidation")

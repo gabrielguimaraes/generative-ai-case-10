@@ -25,11 +25,11 @@ public class StringValidator {
      * @param maxLength The maximum acceptable length of the string.
      * @return {@code true} if the input string matches the criteria, {@code false} otherwise.
      */
-    private static final String WHITESPACE_REGEX = ".*\\s.*";
-    private static final String UPPERCASE_REGEX = ".*[A-Z].*";
-    private static final String LOWERCASE_REGEX = ".*[a-z].*";
-    private static final String DIGIT_REGEX = ".*\\d.*";
-    private static final String SPECIAL_CHAR_REGEX = ".*[!\"#$%&'()*+,-./:;<=>?@\\[\\]\\\\^_`{|}~].*";
+    private static final String WHITESPACE_REGEX = ".*\\s.*+";
+    private static final String UPPERCASE_REGEX = ".*[A-Z].*+";
+    private static final String LOWERCASE_REGEX = ".*[a-z].*+";
+    private static final String DIGIT_REGEX = ".*\\d.*+";
+    private static final String SPECIAL_CHAR_REGEX = ".*[!\"#$%&'()*+,-./:;<=>?@\\[\\]\\\\^_`{|}~].*+";
 
     public static boolean isValid(String input, int maxLength) {
         return
