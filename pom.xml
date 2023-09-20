@@ -15,6 +15,7 @@
     <maven.compiler.target>17</maven.compiler.target>
     <sonar.organization>gabrielguimaraes</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <sonar.projectKey>gabrielguimaraes_generative-ai-case-10</sonar.projectKey>
   </properties>
 
 
